@@ -1,8 +1,11 @@
 const express = require('express');
 const Habit = require('../models/Habit');
 const User = require('../models/User');
+const auth = require('../middleware/auth');
 
 const router = express.Router();
+
+router.use(auth); // Aplica el middleware a todas las rutas de hábitos
 
 // Agregar un nuevo hábito
 router.post('/', async (req, res) => {
